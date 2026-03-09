@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "portfolio-backend",
   "builds": [
     {
       "src": "server.js",
@@ -12,5 +11,10 @@
       "src": "/(.*)",
       "dest": "server.js"
     }
-  ]
+  ],
+  "functions": {
+    "server.js": {
+      "maxDuration": 10
+    }
+  }
 }
