@@ -1,8 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 const { body, validationResult } = require('express-validator');
 const User = require('../models/user');
+const connectDB = require('../config/db'); // ADD THIS
+
+// Connect DB before each route
+router.use(async (req, res, next) => {
+  await connectDB();
+  next();
+});
+
+// ... rest of your code (register, login)
 
 // Register
 router.post('/register', [
